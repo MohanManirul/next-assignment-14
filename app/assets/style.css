@@ -1,0 +1,109 @@
+.header{
+    text-align: center;
+}
+.headerDiv{
+    background-color: cadetblue;
+
+}
+
+.todo-left{
+    border: 1px solid blue;
+
+}
+.todo-form{
+    border: 1px solid red;
+}
+.cardPadding{
+    padding: 7px;
+    display: block;
+}
+
+.listDisplay{
+    display: inline-flex;
+    padding: 5px;
+    margin-left: 28px;
+    margin-top: 4px;
+    margin-bottom: -5px;
+    
+}
+
+.list{
+    list-style: none;
+    padding: 5px;  
+    list-style-type: none; 
+    
+}
+ul li{
+    list-style-type: none;
+    color: #fff;
+
+  }
+
+  .imgWidth{
+    max-width: 100%;
+    height: auto;
+  }
+  .footer {
+    position: fixed;
+    left:0px;
+    bottom: 0;
+    width: 100%;
+    background-color: chocolate;
+    color: white;
+    text-align: center;
+
+  }
+
+  .navBar{
+    background-color: chocolate;
+
+  }
+  .row{
+    margin-top : 100px;
+  }
+
+.Logo {
+    height: 21px;
+    width: 26px;
+}
+
+.marginBottom{
+    margin-bottom: 65px;
+}
+.blogContent{
+  margin-top: 100px;
+}
+.contactUsMargin{
+  margin-top:70px;
+}
+
+.aboutMargin{
+  margin-top: 150px;
+  text-align: center;
+}
+.sectionOne{
+  background-color: #aaaaaa;
+  margin:50px;
+}
+.sectionTwo{
+  background-color: rgb(17, 1, 1);
+  margin:50px;
+  color:#fff;
+}
+
+.SingleeBlog{
+  margin-top:150px;
+}
+.imgWidth{
+  max-width: 100%;
+  height: auto;
+}
+
+.cardPadding{
+  padding: 9px;
+  display: block;
+}
+
+.cardMargin{
+  margin-top:150px;
+}
