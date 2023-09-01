@@ -8,11 +8,11 @@ export async function CreateToken(email) {
                 .setIssuer(process.env.JWT_ISSUER)
                 .setExpirationTime(process.env.JWT_EXPIRATION_TIME)
                 .sign(secret)
-        return token;
+        return token; // produce cypher text will be used to produce cookie 
 }
 
 export async function verifyToken(token) {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    const decoded = await jwtVerify(token,secret)
-    return decoded['payload']
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET); // collect JWT_SECRET from .env file
+    const decoded = await jwtVerify(token,secret) ; // compare cypher text token with .env's secret key
+    return decoded['payload'] // extract cypher text token as plain text & output is user's entered email
 }
