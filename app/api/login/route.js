@@ -31,7 +31,7 @@ export async function POST(req ,res){
 }
 
 export async function GET(req,res){
-    cookies.delete('token');
+    cookies().delete('token');
     return NextResponse.json(
         {
             status: true,
