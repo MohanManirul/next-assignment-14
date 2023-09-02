@@ -18,7 +18,10 @@ const inputChange = (name,value) => {
 }
 
 
-    const Submit = async(e) => {
+    const Submit = async (e) => {
+        console.log(JSON.stringify(formValue))
+        // console.log(formValue.email)
+        // console.log(formValue.password)
         e.preventDefault();
         if(formValue.email.length === 0){
             alert('Email Required')
@@ -26,8 +29,10 @@ const inputChange = (name,value) => {
             alert('Password Required')
         }else{
             const config = {method:'POST', body:JSON.stringify(formValue)}
-            const response = await fetch("/api/login",config)
-            const json = await response.json(); 
+            // console.log(config)
+            const response = await fetch("/api/login",config)        
+            const json = await response.json();  // problem here ... return status false
+            // console.log(json);
             if(json['status'] === true){
                 router.replace('/dashboard')
             }else{

@@ -4,7 +4,9 @@ import { cookies } from "next/headers";
 
 export async function POST(req ,res){
     const JsonBody = await req.json();
+
     let email = JsonBody['email'];
+    console.log(email);
     let password = JsonBody['password'];
 
     if('email' === 'fiforeg@gmail.com' && password === '123456'){
