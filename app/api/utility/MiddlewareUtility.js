@@ -8,7 +8,7 @@ export async function CheckCookieAuth(req){
         let payload = await verifyToken(token['value']) // decript the cookie as plain text (original email)
         console.log(payload['email'])
         const requestHeaders = new Headers(req.headers) // verify the req.headers (token) regularly
-        requestHeaders.set('email',payload['email']) // set the payload['email'] at header
+        requestHeaders.set('email', payload['email']) // set the payload['email'] at header
         // allow to go to controller
         return NextResponse.next({
             request:{headers:requestHeaders},

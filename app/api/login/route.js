@@ -7,7 +7,7 @@ export async function POST(req ,res){
     let email = JsonBody['email'];
     let password = JsonBody['password'];
 
-    if('email' === 'email@email.com' && password === '123'){
+    if('email' === 'fiforeg@gmail.com' && password === '123456'){
         let Cookie =  await TokenCookie(email);
         return NextResponse.json(
             {

@@ -107,3 +107,10 @@ ul li{
 .cardMargin{
   margin-top:150px;
 }
+.login-form-margin{
+  margin-top: 10px;
+}
+.Login-Image{
+  height: auto;
+  width: 400px;
+}
