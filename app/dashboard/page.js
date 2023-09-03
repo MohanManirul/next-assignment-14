@@ -3,7 +3,7 @@
 const Page = () => {
     return (
         <div className="row">
-            <p>Welcome to dashboard</p>
+            <p className="text-center">Welcome to dashboard</p>
         </div>
     );
 };
