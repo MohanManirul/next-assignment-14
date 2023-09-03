@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
+import { CheckCookieAuth } from "./api/utility/MiddlewareUtility";
 
-export function middleware(req , res){
-    if(req.nextUrl.pathname.startWith("api/product/new")){
-        const reqHeader = new Headers(req.headers);
-        reqHeader.set("Bearer","Authorization");
-        return NextResponse.next({
-            request:{headers:reqHeader},
-        });
+export async function middleware(req){
+    if(req.nextUrl.pathname.startWith('/dashboard')){
+        console.log('Hello');
+        return await CheckCookieAuth(req);
     }
 }
 

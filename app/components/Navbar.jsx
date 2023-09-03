@@ -25,6 +25,14 @@ const Navbar = () => {
                            
                 <li className="list">
                     <Link href="/contact"  className="list">Contact</Link>                   
+                </li>  
+
+                <li className="list float-right">
+                    <Link href="/login"  className="list">Login</Link>                   
+                </li>
+
+                <li className="list float-right">
+                    <Link href="/dashboard"  className="list">Dashboard</Link>                   
                 </li>              
                           
 
