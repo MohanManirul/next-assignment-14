@@ -1,44 +1,22 @@
 "use client"
-
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState , useRef} from "react";
+
 
 const Page = () => {
 
-const [formValue , setFormvalue] = useState({email:'fiforeg@gmail.com', password : '123456'})
+const [formValue , setFormvalue] = useState();
+let emailRef , passwordRef =  useRef();
 const router = useRouter();
 
-const inputChange = (name,value) => {
-    setFormvalue(formValue =>(
-        {
-            ...formValue,
-            [name]:value
-        }
-    ))
-}
-
-
     const Submit = async (e) => {
-        console.log(JSON.stringify(formValue))
-        // console.log(formValue.email)
-        // console.log(formValue.password)
         e.preventDefault();
-        if(formValue.email.length === 0){
-            alert('Email Required')
-        }else if(formValue.password.length === 0){
-            alert('Password Required')
-        }else{
-            const config = {method:'POST', body:JSON.stringify(formValue)}
-            // console.log(config)
-            const response = await fetch("/api/login",config)        
-            const json = await response.json();  // problem here ... return status false
-            // console.log(json);
-            if(json['status'] === true){
-                router.replace('/dashboard')
-            }else{
-                alert(json['message'])
-            }
-        }
+        let email = emailRef.value;
+        let password = passwordRef.value;
+
+        let res = await axios.post('api/login',{email,password});
+        console.log(res);
     }
 
     return (
@@ -50,9 +28,9 @@ const inputChange = (name,value) => {
             <div className="col-5 ">
                 <form onSubmit={Submit}  className="card p-5">
                     <label className="form-label">User Email</label>
-                    <input className="form-control" value={formValue.email} onChange={(e)=>inputChange('email',e.target.value)} type="email" placeholder="example@example.com"/>
+                    <input className="form-control" ref={(input)=>(emailRef=input)} type="email" placeholder="example@example.com"/>
                     <label className="form-label mt-3">User Password</label>
-                    <input className="form-control" value={formValue.password} onChange={(e)=>inputChange('password',e.target.value)} type="password" placeholder="XXXXXXX"/>
+                    <input className="form-control" ref={(input)=>(passwordRef=input)} type="password" placeholder="XXXXXXX"/>
                     <input className="btn btn-primary mt-3" type="submit" value="Login" />
                 </form>
             </div>

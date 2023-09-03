@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
-import { TokenCookie } from "../utility/TokenCookie";
 import { cookies } from "next/headers";
+import { TokenCookie } from "../utility/TokenCookie";
 
 export async function POST(req ,res){
     const JsonBody = await req.json();
 
     let email = JsonBody['email'];
-    console.log(email);
-    let password = JsonBody['password'];
 
-    if('email' === 'fiforeg@gmail.com' && password === '123456'){
-        let Cookie =  await TokenCookie(email);
+    let password = JsonBody['password'];
+    let Cookie = await TokenCookie(email)
+    if( email === 'fiforeg@gmail.com' && password === '123456'){
+   
         return NextResponse.json(
             {
                 status : true,
@@ -18,7 +18,7 @@ export async function POST(req ,res){
             },
             {
                 status : 200,
-                headers : Cookie
+                // headers : Cookie
 
             }
         )
