@@ -2,6 +2,7 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import LinkedinProvider from "next-auth/providers/linkedin";
+import NextAuth from "next-auth/next";
 
 
 
@@ -32,3 +33,6 @@ export const authOptions = {
           }),
     ]
 }
+
+const handler = NextAuth(authOptions);
+export  {handler as GET, handler as POST};

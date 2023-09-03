@@ -58,7 +58,7 @@ const inputChange = (name,value) => {
                 <input className="btn btn-dark mt-3" type="submit" value="Login With Github" /> &nbsp;
                 <input className="btn btn-success mt-3" type="submit" value="Login With Facebook" />&nbsp;
                 <input className="btn btn-danger mt-3" type="submit" value="Login With Google" />&nbsp;
-                <input className="btn btn-warning mt-3" type="submit" value="Login With Linkedin" />
+                <input className="btn btn-info mt-3" type="submit" value="Login With Linkedin" />
             </div>
         </div>
     </div>
