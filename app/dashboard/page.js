@@ -2,8 +2,8 @@
 
 const Page = () => {
     return (
-        <div>
-            
+        <div className="row">
+            <p>Welcome to dashboard</p>
         </div>
     );
 };
