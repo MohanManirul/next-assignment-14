@@ -55,6 +55,10 @@ const inputChange = (name,value) => {
                     <input className="form-control" value={formValue.password} onChange={(e)=>inputChange('password',e.target.value)} type="password" placeholder="XXXXXXX"/>
                     <input className="btn btn-primary mt-3" type="submit" value="Login" />
                 </form>
+                <input className="btn btn-dark mt-3" type="submit" value="Login With Github" /> &nbsp;
+                <input className="btn btn-success mt-3" type="submit" value="Login With Facebook" />&nbsp;
+                <input className="btn btn-danger mt-3" type="submit" value="Login With Google" />&nbsp;
+                <input className="btn btn-warning mt-3" type="submit" value="Login With Linkedin" />
             </div>
         </div>
     </div>
