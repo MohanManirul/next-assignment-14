@@ -32,10 +32,6 @@ const Navbar = () => {
                 </li>
 
                 <li className="list float-right">
-                    <Link href="/registration"  className="list">Registration</Link>                   
-                </li>
-
-                <li className="list float-right">
                     <Link href="/dashboard"  className="list">Dashboard</Link>                   
                 </li>              
                           

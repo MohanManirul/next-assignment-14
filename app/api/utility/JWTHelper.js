@@ -2,6 +2,16 @@
 
 const { SignJWT, jwtVerify } = require("jose");
 
+// export async function CreateToken(email) {
+//   const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+//   let token = await new SignJWT({ email: email })
+//     .setProtectedHeader({ alg: "HS256" })
+//     .setIssuedAt()
+//     .setIssuer(process.env.JWT_ISSUER)
+//     .setExpirationTime(process.env.JWT_EXPIRATION_TIME)
+//     .sign(secret);
+//   return token; // produce cypher text will be used to produce cookie
+// }
 
 export async function CreateToken(email) {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET);
