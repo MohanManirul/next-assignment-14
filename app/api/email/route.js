@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function GET(req , res){
+
     const {searchParams} = new URL(req.url);
     let ToEmail = searchParams.get('email');
 
-    //Transporter
+    //smtp Transporter 
     let Transporter = nodemailer.createTransport({
         host : 'mail.teamrabbil.com',
         port : 25,
