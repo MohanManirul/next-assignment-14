@@ -15,7 +15,7 @@ const Page = () => {
 
     let res = await axios.post("api/login", { email, password });
     if (res.data.status === true) {
-      router.replace("/dashboard");
+      router.replace("/otp");
       alert("true");
     } else {
       alert("false");
