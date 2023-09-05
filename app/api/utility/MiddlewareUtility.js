@@ -4,9 +4,9 @@ import { verifyToken } from "./JWTHelper";
 export async function CheckCookieAuth(req){
     try{
         let token = req.cookies.get('token'); 
-        let payload = await verifyToken(token['value']) 
-        const requestHeaders = new Headers(req.headers)
-        requestHeaders.set('otp', payload['otp'])
+        let payload = await verifyToken(token); 
+        const requestHeaders = new Headers(req.headers);
+        requestHeaders.set('otp', payload['otp']);
         return NextResponse.next({
             request:{headers:requestHeaders},
         })
