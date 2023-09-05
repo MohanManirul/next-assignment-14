@@ -1,7 +1,4 @@
-// import {SignJWT , jwtVerify} from 'jose';
-
-const { SignJWT, jwtVerify } = require("jose");
-
+import {SignJWT , jwtVerify} from 'jose';
 
 export async function CreateToken(otp) {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET);

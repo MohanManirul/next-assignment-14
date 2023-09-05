@@ -1,5 +1,5 @@
 
-
+ 
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { TokenCookie } from "../utility/TokenCookie";
@@ -13,7 +13,7 @@ export async function POST(req, res) {
     return NextResponse.json(
       {
         status: true,
-        message: "Login Success",
+        message: "Login Success"
       },
       {
         status: 200,
@@ -23,13 +23,13 @@ export async function POST(req, res) {
   } else {
     return NextResponse.json({
       status: false,
-      message: "Login Fail",
+      message: "Login Fail"
     });
   }
 }
 
 export async function GET(req, res) {
-  cookies().delete("token");
+  cookies().delete('token');
   return NextResponse.json({
     status: true,
     message: "Logout Successfull",

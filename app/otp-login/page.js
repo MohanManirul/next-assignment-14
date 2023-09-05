@@ -10,14 +10,14 @@ const Page = () => {
   const Submit = async (e) => {
     e.preventDefault();
     let otp = otpRef.value;
-
+ 
     let res = await axios.post("api/otpLogin", { otp });
 
     if (res.data.status === true) {
       router.replace("/dashboard");
-      alert("Login Success msg from Login page");
+      alert("Login Success msg from otp Login page");
     } else {
-      alert("Login Failed msg from Login page");
+      alert("Login Failed msg from otp Login page");
     }
   };
 

@@ -6,8 +6,7 @@ export async function TokenCookie(otp) {
   let token = await CreateToken(otp);
 
   let newToken = {
-    "Set-Cookie": `token=${token}; Max-Age=7200; Secure; HttpOnly; SameSite:Strict; Path=/`,
-  };
+    "Set-Cookie": `token=${token}; Max-Age=7200; Secure; HttpOnly;Path=/ ; SameSite:Strict` };
   return newToken;
 }
 
