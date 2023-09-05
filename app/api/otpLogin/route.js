@@ -1,15 +1,15 @@
+
+
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { TokenCookie } from "../utility/TokenCookie";
 
 export async function POST(req, res) {
   const JsonBody = await req.json();
+  let otp = JsonBody["otp"];
 
-  let email = JsonBody["email"];
-
-  let password = JsonBody["password"];
-  if (email === "fiforeg@gmail.com" && password === "123456") {
-    let Cookie = await TokenCookie(email);
+  if (otp === "123" ) {
+    let Cookie = await TokenCookie(otp);
     return NextResponse.json(
       {
         status: true,

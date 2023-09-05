@@ -1,34 +1,28 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function GET(req , res){
+export async function POST(req , res){
 
     const {searchParams} = new URL(req.url);
-    let ToEmail = searchParams.get('email');
+    let ToEmail = 'fiforeg@gmail.com';
 
-    //smtp Transporter 
-    let Transporter = nodemailer.createTransport({
-        host : 'mail.teamrabbil.com',
-        port : 25,
-        secure : false,
-        auth : {
-            user : 'info@teamrabbil.com',
-            pass:'~sR4[bhaC[Qs'
-        },
-        tls:{rejectUnauthorized: false}
-    }) 
 
-    // Prepare email
-    let myEmail = {
-        from : "Test email from next js application <info@teamrabbil.com>",
-        to : ToEmail,
-        subject : "test email from next js application",
-        text : "test email from next js application"
-    }
-    try{
-       await Transporter.sendMail(myEmail);
-      return  NextResponse.json({msg: "Email Sending Success"});
-    }catch(e){
-      return  NextResponse.json({msg: "Email Sending Fail"});
-    }
+
+var transporter = nodemailer.createTransport({
+    service: "gmail",
+
+    auth: {
+      user: 'fiforeg@gmail.com',
+      pass: 'tbxevmgwoncdiryq',
+    },
+  });
+
+  let mailOption = {
+    from: ToEmail,
+    to: ToEmail,
+    subject: 'EmailSubject',
+    html: `<div>${'EmailText'}</div> <div><p>Name: ${'name'}</p><p>Email: ${'email'}</p> </div> <br/> <b>your otp is : 123 </b>`,
+  };
+
+   await transporter.sendMail(mailOption);
 }

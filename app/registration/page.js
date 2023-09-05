@@ -5,23 +5,22 @@ import { useState, useRef } from "react";
 
 const Page = () => {
   let router = useRouter();
-  let emailRef,
-    passwordRef = useRef();
+  let emailRef = useRef();
 
   const Submit = async (e) => {
     e.preventDefault();
     let email = emailRef.value;
-    let password = passwordRef.value;
-
-    let res = await axios.post("api/login", { email, password });
-    if (res.data.status === true) {
-      router.replace("/dashboard");
-      alert("true");
+ 
+    let res = await axios.post("api/email", { email });
+    console.log(res);
+    if (1 === 1) {
+      router.replace("/otp-login");
+      alert("otp send from Registration page");
     } else {
-      alert("false");
+      alert("otp send Failed msg from Registration page");
     }
   };
-
+ 
   return (
     <div className="container">
       <div className="row d-flex vh-100 align-content-center justify-content-center login-form-margin">
@@ -43,17 +42,10 @@ const Page = () => {
               type="email"
               placeholder="example@example.com"
             />
-            <label className="form-label mt-3">User Password</label>
-            <input
-              className="form-control"
-              ref={(input) => (passwordRef = input)}
-              type="password"
-              placeholder="XXXXXXX"
-            />
             <input
               className="btn btn-primary mt-3"
               type="submit"
-              value="Login"
+              value="Register"
             />
           </form>
         </div>

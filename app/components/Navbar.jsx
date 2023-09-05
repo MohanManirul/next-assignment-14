@@ -28,7 +28,7 @@ const Navbar = () => {
                 </li>  
 
                 <li className="list float-right">
-                    <Link href="/login"  className="list">Login</Link>                   
+                    <Link href="/registration"  className="list">Registration</Link>                   
                 </li>
 
                 <li className="list float-right">

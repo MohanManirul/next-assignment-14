@@ -1,13 +1,14 @@
-"use client"
+"use client";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const Page = () => {
     const router = useRouter();
     const Logout = async () => {
-        const res = await fetch('/api/login');
-        const json = await res.json();
-        if(json['status'] === true ){
-            router.replace('/login');
+        let res = await axios.get("api/otpLogin");
+       
+        if(res.data.status === true ){
+            router.replace('/otp-login');
         }
     }
 
