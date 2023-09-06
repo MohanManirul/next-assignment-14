@@ -4,8 +4,9 @@ import nodemailer from "nodemailer";
 export async function POST(req , res){
 
     const {searchParams} = new URL(req.url);
-    let ToEmail = 'fiforeg@gmail.com';
-
+    // let ToEmail = 'fiforeg@gmail.com';
+    let ToEmail = searchParams.get('email');
+    // console.log(ToEmail);
 
 
 var transporter = nodemailer.createTransport({

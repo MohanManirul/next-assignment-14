@@ -6,13 +6,13 @@ import { useState, useRef } from "react";
 const Page = () => {
   let router = useRouter();
   let emailRef = useRef();
-
+ 
   const Submit = async (e) => {
     e.preventDefault();
     let email = emailRef.value;
  
-    let res = await axios.post("api/email", { email });
-    console.log(res);
+    let res = await axios.post("api/email",{email});
+    console.log("ok");
     if (1 === 1) {
       router.replace("/otp-login");
       alert("otp send from Registration page");
