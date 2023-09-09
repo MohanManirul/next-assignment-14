@@ -4,9 +4,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req, res) {
   const jsonParams = await req.json();
-  let name = jsonParams["name"];
   let email = jsonParams["email"];
-  let password = jsonParams["password"];
 
   if ( email == "") {
     return NextResponse.json({ message: "All fields required." });
