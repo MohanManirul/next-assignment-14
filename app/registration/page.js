@@ -27,7 +27,8 @@ const inputChange = (name,value) => {
             const response = await fetch("/api/email",config);
             const json = await response.json(); 
             if(json['status'] === true){
-                router.push('/otp-login?email=${name}')
+                alert(json["message"]);
+                router.replace('/otp-login')
             }else{
                 alert(json['message'])
             }

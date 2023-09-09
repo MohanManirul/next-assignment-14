@@ -11,7 +11,7 @@ export async function CreateToken(otp) {
 
   return token;
 }
-
+ 
 export async function verifyToken(token) {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET); 
   const decoded = await jwtVerify(token, secret); 
