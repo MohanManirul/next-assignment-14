@@ -1,30 +1,52 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import nodemailer from "nodemailer";
 
-export async function POST(req , res){
-  // const reqBody = await req.json();
-  // let ToEmail = reqBody;
-    // const {searchParams} = new URL(req.url);
-    let ToEmail = 'fiforeg@gmail.com';
-    // let ToEmail = searchParams.get('email');
-    console.log(ToEmail);
+export async function POST(req, res) {
+  const jsonParams = await req.json();
+  let name = jsonParams["name"];
+  let email = jsonParams["email"];
+  let password = jsonParams["password"];
 
+  if ( email == "") {
+    return NextResponse.json({ message: "All fields required." });
+  } else {
+    const Transporter = nodemailer.createTransport({
+      service:"gmail",
+      auth: {
+        user: 'fiforeg@gmail.com',
+        pass: 'tbxevmgwoncdiryq',
+      },
+    });
 
-var transporter = nodemailer.createTransport({
-    service: "gmail",
+    let OTP = 112233;
+    
+    const myEmail = {
+      form: "fiforeg@gmail.com",
+      to: email,
+      subject: "OTP Verification",
+      html: '<p>Your OTP Code is : <b>' + OTP + '</b> <br /> Click <a href="http://localhost:3000/otp/">here</a> to verify it.</p>'
 
-    auth: {
-      user: 'fiforeg@gmail.com',
-      pass: 'tbxevmgwoncdiryq',
-    },
-  });
+    };
+  
+    try {
+      await Transporter.sendMail(myEmail);
 
-  let mailOption = {
-    from: ToEmail,
-    to: ToEmail,
-    subject: 'EmailSubject',
-    html: `<div>${'EmailText'}</div> <div><p>Name: ${'name'}</p><p>Email: ${'email'}</p> </div> <br/> <b>your otp is : 123 </b>`,
-  };
+      const cookieStore = cookies();
+      cookieStore.set("email", email, {
+        httpOnly: true,
+      });
 
-   await transporter.sendMail(mailOption);
+      cookieStore.set("otp", OTP, {
+        httpOnly: true,
+      });
+
+      return NextResponse.json({
+        status: true,
+        message: "Successfully Registered"
+      });
+    } catch (e) {
+      return NextResponse.json({ msg: "Fail" });
+    }
+  }
 }

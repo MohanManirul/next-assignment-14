@@ -8,7 +8,7 @@ export async function POST(req, res) {
   const JsonBody = await req.json();
   let otp = JsonBody["otp"];
 
-  if (otp === "123" ) {
+  if (otp === "112233" ) {
     let Cookie = await TokenCookie(otp);
     return NextResponse.json(
       {

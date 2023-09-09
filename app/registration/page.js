@@ -23,9 +23,11 @@ const inputChange = (name,value) => {
         if(formValue.email.length === 0){
             alert('Email Required')
         }else{
-            const config = {method:'POST', body:JSON.stringify(formValue)}
-            const response = await fetch("/api/email",config);
-            const json = await response.json(); 
+            const config = { method: "POST", body: JSON.stringify(formValue) }
+            const response = await fetch("/api/email", config);
+            console.log(response);
+            const json = await response.json();
+            
             if(json['status'] === true){
                 alert(json["message"]);
                 router.replace('/otp-login')
