@@ -5,20 +5,19 @@ import { useState, useRef } from "react";
 
 const Page = () => {
   let router = useRouter();
-  let emailRef,
-    passwordRef = useRef();
+  let otpRef = useRef();
 
   const Submit = async (e) => {
     e.preventDefault();
-    let email = emailRef.value;
-    let password = passwordRef.value;
+    let otp = otpRef.value;
+ 
+    let res = await axios.post("api/otpLogin", { otp });
 
-    let res = await axios.post("api/login", { email, password });
     if (res.data.status === true) {
       router.replace("/dashboard");
-      alert("true");
+      alert("Login Success msg from otp Login page");
     } else {
-      alert("false");
+      alert("Login Failed msg from otp Login page");
     }
   };
 
@@ -36,24 +35,17 @@ const Page = () => {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div className="col-5 ">
           <form onSubmit={Submit} className="card p-5">
-            <label className="form-label">User Email</label>
+            <label className="form-label">User otp</label>
             <input
               className="form-control"
-              ref={(input) => (emailRef = input)}
-              type="email"
+              ref={(input) => (otpRef = input)}
+              type="text"
               placeholder="example@example.com"
-            />
-            <label className="form-label mt-3">User Password</label>
-            <input
-              className="form-control"
-              ref={(input) => (passwordRef = input)}
-              type="password"
-              placeholder="XXXXXXX"
             />
             <input
               className="btn btn-primary mt-3"
               type="submit"
-              value="Login"
+              value="Verify"
             />
           </form>
         </div>
