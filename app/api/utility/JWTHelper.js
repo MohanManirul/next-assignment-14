@@ -10,7 +10,7 @@ export async function CreateToken(otp) {
     .sign(secret);
 
   return token;
-}
+} 
  
 export async function verifyToken(token) {
   const secret = new TextEncoder().encode(process.env.JWT_SECRET); 

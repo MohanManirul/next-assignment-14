@@ -32,13 +32,6 @@ export default function Home() {
 
   return (
     <>
-            <div className="row">
-            <button className="btn btn-success" onClick={handleSetCookie}>SetCookie</button> <hr/>
-            <button className="btn btn-success" onClick={handleGetCookie}>getCookie</button>
-            </div>
-            <div className="row">
-               <p>cookie</p>
-            </div>
         <div className="row">
             <b className="text-center">Blog List</b>
                 {
